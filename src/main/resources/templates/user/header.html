@@ -30,18 +30,17 @@
 				<span class="navbar-brand">欢迎光临eBusiness</span>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a th:href="@{user/toRegister}">注册</a></li>
-				<li>
-					<a th:href="(${session.bUser} == null)?'user/toLogin':'#'" >
-						<span th:if="${session.bUser} == null" >
-							登录
-						</span>
-						<span th:if="${session.bUser} != null" >
-							欢迎<span th:text="${session.bUser.bemail}" ></span>
-						</span>
-					</a>
+				<li><a th:href="@{/user/toRegister}">注册</a></li>
+				<li th:if="${session.bUser} == null">
+					<a th:href="@{/user/toLogin}">登录</a>
 				</li>
-				<li><a th:href="@{admin/toLogin}">后台</a></li>
+				<li th:if="${session.bUser} != null">
+					<a href="#">欢迎<span th:text="${session.bUser.bemail}"></span></a>
+				</li>
+				<li th:if="${session.bUser} != null">
+					<a th:href="@{/user/loginOut}">退出</a>
+				</li>
+				<li><a th:href="@{/admin/toLogin}">后台</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="padding-right: 30px;">
 				<li><a href="cart/userInfo">个人信息</a></li>

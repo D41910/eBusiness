@@ -64,9 +64,9 @@
 								<td th:text="${gds.gname}"></td>
 								<td th:text="${gds.typename}"></td>
 								<td>
-									<a th:href="@{goods/detail(id=${gds.id},act=detail)}" target="_blank">详情</a>
-									<a th:href="@{goods/detail(id=${gds.id},act=update)}" target="_blank">修改</a>
-									<a th:href="'javascript:deleteGoods(' + ${gds.id} +')'" >删除</a>
+									<a th:href="@{/goods/detail(id=${gds.id},act=detail)}" target="_blank">详情</a>
+									<a th:href="@{/goods/detail(id=${gds.id},act=update)}" target="_blank">修改</a>
+									<a href="javascript:void(0)" th:onclick="'deleteGoods(' + ${gds.id} +')'" >删除</a>
 								</td>
 							</tr>
 							<tr>
@@ -76,16 +76,16 @@
 										<li><a>共<span th:text="${totalPage}" ></span>页</a></li>
 										<li>
 											<span th:if="${currentPage} != 1" >
-												<a th:href="@{goods/selectAllGoodsByPage(currentPage=${currentPage - 1})}">上一页</a>
+												<a th:href="@{/goods/selectAllGoodsByPage(currentPage=${currentPage - 1})}">上一页</a>
 											</span>
 											<span th:if="${currentPage} != ${totalPage}" >
-												<a th:href="@{goods/selectAllGoodsByPage(currentPage=${currentPage + 1})}">下一页</a>
+												<a th:href="@{/goods/selectAllGoodsByPage(currentPage=${currentPage + 1})}">下一页</a>
 											</span>
 										</li>
 									</ul>
 								</td>
 							</tr>
-							<tr><td colspan="4" align="center"><a th:href="@{goods/toAddGoods}">添加商品</a></td></tr>
+							<tr><td colspan="4" align="center"><a th:href="@{/goods/toAddGoods}">添加商品</a></td></tr>
 						</tbody>
 					</table>
 				</div>

@@ -62,7 +62,7 @@
 								<td th:text="${gty.id}"></td>
 								<td th:text="${gty.typename}"></td>
 								<td>
-									<a th:href="'javascript:deleteType(' + ${gty.id} + ')'">删除</a>
+									<a href="javascript:void(0)" th:onclick="'deleteType(' + ${gty.id} + ')'">删除</a>
 								</td>
 							</tr>
 							<tr>
@@ -72,16 +72,16 @@
 										<li><a>共<span th:text="${totalPage}" ></span>页</a></li>
 										<li>
 											<span th:if="${currentPage} != 1" >
-												<a th:href="'type/selectAllTypeByPage?currentPage=' + ${currentPage - 1}">上一页</a>
+												<a th:href="@{/type/selectAllTypeByPage(currentPage=${currentPage - 1})}">上一页</a>
 											</span>
 											<span th:if="${currentPage} != ${totalPage}" >
-												<a th:href="'type/selectAllTypeByPage?currentPage=' + ${currentPage + 1}">下一页</a>
+												<a th:href="@{/type/selectAllTypeByPage(currentPage=${currentPage + 1})}">下一页</a>
 											</span>
 										</li>
 									</ul>
 								</td>
 						</tr>
-						<tr><td colspan="3" align="center"><a th:href="@{type/toAddType}">添加类型</a></td></tr>
+						<tr><td colspan="3" align="center"><a th:href="@{/type/toAddType}">添加类型</a></td></tr>
 						</tbody>
 					</table>
 				</div>
